@@ -1,0 +1,105 @@
+<body></body>
+<script src="/three.js"></script>
+<script>
+  // The "scene" is where stuff in our game will happen:
+  var scene = new THREE.Scene();
+  var flat = {flatShading: true};
+  var light = new THREE.AmbientLight('white', 0.8);
+  scene.add(light);
+
+  // The "camera" is what sees the stuff:
+  var aspectRatio = window.innerWidth / window.innerHeight;
+  var camera = new THREE.PerspectiveCamera(75, aspectRatio, 1, 10000);
+  camera.position.z = 500;
+  scene.add(camera);
+
+  // The "renderer" draws what the camera sees onto the screen:
+  var renderer = new THREE.WebGLRenderer({antialias: true});
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  // ******** START CODING ON THE NEXT LINE ********
+light2 = new THREE.DirectionalLight( 'white', 1 );
+light2.position.set( 100, 100, 10 );
+scene.add(light2);
+
+
+var shape = new THREE.SphereGeometry(150,100,15);
+var rosa = new THREE.MeshPhongMaterial({color:"pink"});
+var ball = new THREE.Mesh(shape, rosa);
+scene.add(ball);
+ball.position.set(0,0,0)
+
+var shape = new THREE.BoxGeometry(300,50,300);
+var verde = new THREE.MeshPhongMaterial({color:"green"});
+var box = new THREE.Mesh(shape, verde);
+scene.add(box);
+box.position.set(0,-130,0);
+box.rotation.set(0,0.75,0);
+
+var cilindro = new THREE.CylinderGeometry(1,150,150,200);
+var azul = new THREE.MeshPhongMaterial({color:"blue"});
+var tube = new THREE.Mesh(cilindro,azul);
+scene.add(tube);
+tube.position.set(0,200,0)
+
+
+var shape = new THREE.TorusGeometry(25,5,8,25)
+var negro = new THREE.MeshPhongMaterial({color:"black"});
+var donut = new THREE.Mesh(shape,negro);
+scene.add(donut);
+donut.position.set(50,30,145)
+
+var shape = new THREE.TorusGeometry(25,5,8,25)
+var negro = new THREE.MeshPhongMaterial({color:"black"});
+var donut1 = new THREE.Mesh(shape,negro);
+scene.add(donut1);
+donut1.position.set(-50,30,145)
+
+var shape = new THREE.BoxGeometry(300,50,300);
+var verde = new THREE.MeshPhongMaterial({color:"green"});
+var box = new THREE.Mesh(shape, verde);
+scene.add(box);
+box.position.set(0,-130,0);
+
+var shape = new THREE.BoxGeometry(100,10,100);
+var rojo = new THREE.MeshPhongMaterial({color:"red"});
+var box = new THREE.Mesh(shape, rojo);
+scene.add(box);
+box.position.set(0,-50,100);
+
+var shape = new THREE.BoxGeometry(420,20,210);
+var amarillo = new THREE.MeshPhongMaterial({color:"yellow"});
+var cube = new THREE.Mesh(shape, amarillo);
+
+var shape1 = new THREE.BoxGeometry(20,300,20);
+var pata1 = new THREE.Mesh(shape1, amarillo);
+
+var shape2 = new THREE.BoxGeometry(20,300,20);
+var pata2 = new THREE.Mesh(shape2, amarillo);
+
+var shape3 = new THREE.BoxGeometry(20,300,20);
+var pata3 = new THREE.Mesh(shape3, amarillo);
+
+var shape4 = new THREE.BoxGeometry(20,300,20);
+var pata4 = new THREE.Mesh(shape4, amarillo);
+
+cube.position.set(0,-200,0);
+pata1.position.set(-180,-350,-80);
+pata2.position.set(-180,-350,80);
+pata3.position.set(180,-350,80);
+pata4.position.set(180,-350,-80);
+
+scene.add(cube);
+scene.add(pata1);
+scene.add(pata2);
+scene.add(pata3);
+scene.add(pata4);
+
+camera.position.set(400,200, 600);
+camera.lookAt(cube.position);
+
+
+  // Now, show what the camera sees on the screen:
+  renderer.render(scene, camera);
+</script>
